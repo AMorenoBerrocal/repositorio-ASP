@@ -10,6 +10,7 @@ builder.Services.AddControllers(options =>
     options.ReturnHttpNotAcceptable = true;
 }).AddXmlDataContractSerializerFormatters();
 
+builder.Services.AddProblemDetails();
 
 //builder.Services.AddProblemDetails(options =>
 //{
