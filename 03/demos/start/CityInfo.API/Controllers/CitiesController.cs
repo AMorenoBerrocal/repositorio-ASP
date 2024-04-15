@@ -7,7 +7,7 @@ namespace CityInfo.API.Controllers
     {
         public JsonResult GetCities()
         {
-            new JsonResult(
+            return new JsonResult(
                 new List<Object>
                 {
                     new {id=1 , Name = "New York City"},
