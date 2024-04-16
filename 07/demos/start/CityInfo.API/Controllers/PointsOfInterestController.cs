@@ -161,6 +161,7 @@ namespace CityInfo.API.Controllers
         public async Task<ActionResult> DeletePointOfInterest(
             int cityId, int pointOfInterestId)
         {
+
             if (!await _cityInfoRepository.CityExistsAsync(cityId))
             {
                 return NotFound();
