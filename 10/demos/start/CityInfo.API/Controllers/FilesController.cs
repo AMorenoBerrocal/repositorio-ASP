@@ -20,7 +20,7 @@ namespace CityInfo.API.Controllers
         }
 
         [HttpGet("{fileId}")]
-        [ApiVersion(0,1,Deprecated = true)]
+        [ApiVersion(0.1,Deprecated = true)]
         public ActionResult GetFile(string fileId)
         {
             // look up the actual file, depending on the fileId...
