@@ -59,6 +59,13 @@ builder.Services.AddScoped<ICityInfoRepository, CityInfoRepository>();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
+builder.Services.AddApiVersioning(setupAction =>
+{
+    setupAction.ReportApiVersions = true;
+    setupAction.AssumeDefaultVersionWhenUnspecified = true;
+    setupAction.DefaultApiVersion = new Asp.Versioning.ApiVersion(1, 0);
+}).AddMvc(); 
+
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer(options =>
     {
