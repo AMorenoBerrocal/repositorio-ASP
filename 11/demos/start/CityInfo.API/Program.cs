@@ -3,6 +3,7 @@ using Asp.Versioning.ApiExplorer;
 using CityInfo.API;
 using CityInfo.API.DbContexts;
 using CityInfo.API.Services;
+using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -15,6 +16,10 @@ Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Debug()
     .WriteTo.Console()
     .WriteTo.File("logs/cityinfo.txt", rollingInterval: RollingInterval.Day)
+    .WriteTo.ApplicationInsights(new TelemetryConfiguration()
+    {
+        InstrumentationKey = "TU_INSTRUMENTATION_KEY"
+    }, TelemetryConverter.Traces)
     .CreateLogger();
 
 var builder = WebApplication.CreateBuilder(args);
